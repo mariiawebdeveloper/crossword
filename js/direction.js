@@ -1,0 +1,5 @@
+const Direction = {
+    HORIZONTAL: "HORIZONTAL",
+    VERTICAL: "VERTICAL",
+    CROSSED_LINES: "CROSSED_LINES",
+}

@@ -1,0 +1,275 @@
+:root {
+    --default-cell-background-color: #1F2833;
+    --selected-cell-background-color: deeppink;
+    --selected-empty-cell-background-color: #66FCF1;
+    --default-crossed-cell-background-color: #ffc0cb;
+}
+
+
+@font-face {
+    font-family: "cyberpunk";
+    src: url("fonts/Cyberpunk-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    background-color: var(--default-cell-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Fira Code";
+}
+
+header {
+    color: white;
+}
+
+h1:hover {
+    text-shadow: 4px 4px 15px rgba(235, 235, 235, 1);
+}
+.locationTable{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+}
+
+td {
+    color: var(--default-cell-background-color);
+    border: 1px solid;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+td:hover {
+    box-shadow: 0 20px 26px 0 rgba(0, 0, 0, 0.5), 0 17px 50px 0 rgba(0, 0, 0, 0.30);
+}
+td:focus {
+    outline: none;
+}
+.word{
+    background-color: var(--selected-empty-cell-background-color);
+}
+.false{
+   background-color: orangered !important;
+}
+.true{
+    background-color: greenyellow !important;
+}
+#field{
+    border: 1px solid #66FCF1;
+}
+.w {
+    display: grid;
+    grid-template-columns: 44px 44px 44px 44px;
+    grid-template-rows: 44px 44px 44px 44px;
+}
+
+.a {
+    margin: 1px;
+    border: 1px deeppink;
+    background: aliceblue;
+}
+
+.cell {
+    align-items: center;
+    justify-content: center;
+}
+
+.cellText {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+#list {
+    background: black;
+}
+
+.textEnter {
+    color: white;
+}
+
+#input {
+    height: 50%;
+    width: 50%;
+}
+
+.buttons:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.5), 0 17px 50px 0 rgba(0, 0, 0, 0.30);
+}
+
+.buttons:focus {
+    outline: none;
+}
+
+.buttons:active {
+    box-shadow: 0 1px #424242;
+    transform: translateY(1px);
+}
+
+.buttons {
+    background-color: lightpink;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+#buttonCheck {
+    background-color: deeppink;
+    color: #66FCF1;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.slider:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.5), 0 17px 50px 0 rgba(0, 0, 0, 0.30);
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffc0cb;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: deeppink;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #ffc0cb;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider {
+    border-radius: 34px;
+}
+
+.slider:before {
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+input + .slider:after {
+    content: "Ver";
+    color: black;
+    text-align: right;
+    font-size: 10px;
+    margin-left: 28px;
+}
+
+input:checked + .slider:after {
+    content: "Hor";
+    color: white;
+    text-align: left;
+    font-size: 10px;
+    margin-left: -28px;
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
