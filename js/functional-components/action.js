@@ -220,7 +220,7 @@ buttonGenerate.onclick = () => {
 
     async function fetchData(words) {
 
-        (await fetch(`https://crossword.worddict.net/?words=${words}`)
+        (await fetch(`https://www.puzzlemaker.com/WordSearch/fox1${encodeURIComponent(words.join(','))}`)
             .then(response => response))
             .json()
             .then(data => {
